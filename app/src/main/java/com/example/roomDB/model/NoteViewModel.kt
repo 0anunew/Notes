@@ -1,9 +1,12 @@
-package com.example.roomDB
+package com.example.roomDB.model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.roomDB.entity.Note
+import com.example.roomDB.database.NoteDB
+import com.example.roomDB.repo.NoteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -13,7 +16,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     val allNotes: LiveData<MutableList<Note>>
     // LiveData gives us updated words when they change.
     init {
-        val dao = NoteDB.getDatabaseInstance(application).getNoteDao()
+        val dao = NoteDB.Companion.getDatabaseInstance(application).getNoteDao()
         repository = NoteRepository(dao)
         allNotes = repository.allNotes
     }

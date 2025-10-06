@@ -1,9 +1,11 @@
-package com.example.roomDB
+package com.example.roomDB.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.roomDB.dataAccessObject.NoteDAO
+import com.example.roomDB.entity.Note
 
 @Database(entities = arrayOf(Note::class), version = 1, exportSchema = false)
 abstract class NoteDB : RoomDatabase() {
