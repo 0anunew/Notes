@@ -9,8 +9,8 @@ import kotlinx.coroutines.launch
 
 class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: NoteRepository
-    private val allNotes: LiveData<MutableList<Note>>
+    val repository: NoteRepository
+    val allNotes: LiveData<MutableList<Note>>
     // LiveData gives us updated words when they change.
     init {
         val dao = NoteDB.getDatabaseInstance(application).getNoteDao()
