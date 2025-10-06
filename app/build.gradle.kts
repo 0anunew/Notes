@@ -38,9 +38,12 @@ android {
 dependencies {
 
     val room_version = "2.8.1"
+    val lifecycle_version = "2.9.4"
 
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_version}")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
