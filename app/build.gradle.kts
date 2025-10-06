@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.contacts"
+    namespace = "com.example.roomDB"
     compileSdk = 36
 
     defaultConfig {
