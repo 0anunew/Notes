@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roomDB.adaptors.NoteAdaptor
 import com.example.roomDB.model.NoteViewModel
@@ -29,16 +30,15 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recycler_view)
         notesAdaptor = NoteAdaptor()
         recyclerView.adapter = notesAdaptor
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         noteViewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(NoteViewModel::class.java)
+        )[NoteViewModel::class.java]
 
-        noteViewModel.allNotes.observe(this){
-            it.forEach{
-                println(it.title)
-            }
+        noteViewModel.allNotes.observe(this) {
+            notesAdaptor.setNotes(it)
         }
 
     }
