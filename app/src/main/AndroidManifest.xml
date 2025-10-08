@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Contacts">
         <activity
+            android:name=".activities.AddUpdateActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
